@@ -29,16 +29,31 @@ orderItems.addEventListener('click', () => {
             let li = document.createElement('li');
             let h2 = document.getElementById('h2');
 
-            h2.innerHTML = 'A ordem dos números digitados é'
+            h2.innerHTML = 'A ordem dos números digitados é';
             li.innerHTML = list[i];
             ul.appendChild(li);
-            li.setAttribute('id',  i)
+            li.setAttribute('id',  i);
             
         }
 
     };
 
-    list = []
+    list = [];
 
 });
 
+let resetButton = document.getElementById('toReset');
+
+resetButton.addEventListener('click', () => {
+
+    let ul = document.getElementById('list');
+
+    while (ul.firstChild) { 
+        ul.removeChild(ul.firstChild); 
+    }
+
+    let h2 = document.getElementById('h2');
+
+    h2.innerHTML = '';
+
+});
