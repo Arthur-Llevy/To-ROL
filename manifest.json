@@ -1,0 +1,9 @@
+{
+  "name": "To ROL",
+  "short_name": "To ROL",
+  "theme_color": "#171717",
+  "background_color": "#171717",
+  "display": "standalone",
+  "scope": "/index.html",
+  "start_url": "/"
+}
