@@ -7,7 +7,7 @@ html {
 }
 
 .container {
-    width: 400px;
+    width: auto;
     height: auto;
     margin: 40px auto;
     display: flex;
@@ -28,6 +28,16 @@ input#number {
     font-size: 17px;
 }
 
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
+}
+
 button {
     margin: 10px 0;
     border-radius: 6px;
@@ -37,11 +47,18 @@ button {
     height: 40px;
     font-weight: bold;
     font-size: 13px;
-    background-color: #24dbff;
+    background-color: #1ba1bb;
     color: whitesmoke;
 }
 
+h2 {
+    text-align: center;
+}
+
 ul, li {
-    color: whitesmoke;
-    font-size: 25px;
+  color: whitesmoke;
+  font-size: 25px;
+  list-style: none;
+  margin: 10px 0;
+  padding: 0;
 }
