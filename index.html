@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#171717">
+    <link rel="apple-touch-icon" href="./assets/logo.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="canonical" href="https://arthur-llevy.github.io/To-ROL/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To ROL App</title>
     <link rel="stylesheet" href="style.css">
@@ -25,5 +29,17 @@
     </div>
 
     <script src="main.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker
+            .register('/sw.js')
+            .then(serviceWorker => {
+              console.log('Service Worker registered: ' + serviceWorker);
+            })
+            .catch(error => {
+              console.log('Error registering the Service Worker: ' + error);
+            });
+        }
+    </script>
 </body>
 </html>
