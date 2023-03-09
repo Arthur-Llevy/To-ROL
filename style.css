@@ -28,6 +28,19 @@ input#number {
     font-size: 17px;
 }
 
+.help{
+    margin: 10px 0;
+    border-radius: 6px;
+    outline: none;
+    border: none;
+    width: 100px;
+    height: 40px;
+    font-weight: bold;
+    font-size: 13px;
+    background-color: #891313;
+    color: whitesmoke;   
+}
+
 input[type=number]::-webkit-inner-spin-button { 
     -webkit-appearance: none;
     

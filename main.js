@@ -1,4 +1,3 @@
-
 let addItem = document.getElementById('addItem');
 let list = [];
 
@@ -34,14 +33,13 @@ orderItems.addEventListener('click', () => {
             li.innerHTML = list[i];
             ul.appendChild(li);
             li.setAttribute('id',  i);
-            maxMinResult.innerHTML = `Os valores máximos e mínimos são, respectivamente ${Math.max(...list)} e ${Math.min(...list)}`;
+            maxMinResult.innerHTML = `Os valores máximos e mínimos são, respectivamente, ${Math.max(...list)} e ${Math.min(...list)}`;
                    
-        }
+        };
 
     };
 
-    list = [];
-    
+    list = [];    
 
 });
 
@@ -62,3 +60,9 @@ resetButton.addEventListener('click', () => {
     h2.innerHTML = '';
 
 });
+
+function help(){
+
+    window.alert('Olá! Para usar o To ROL você precisa digitar números no campo acima, após digitar um número aperte em "adicionar a lista", quando tiver colocado todos os números, basta clicar no botão "ordernar."')
+
+};
