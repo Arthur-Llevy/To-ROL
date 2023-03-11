@@ -16,7 +16,34 @@ html {
     align-items: center;
 }
 
-input#number {
+#datas {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    width: auto;
+    height: auto;
+    margin: 30px 0;
+    font-weight: bold;
+}
+
+fieldset {
+    display: flex;
+    width: auto;
+    height: auto;
+    align-items: center;
+    gap: 15px;
+    margin: 0 0 30px 0;
+}
+
+fieldset legend {
+    font-weight: bold;
+}
+
+fieldset p {
+    font-weight: bold;
+}
+
+input {
     border: none;
     border-radius: 3px;
     outline: none;
@@ -28,7 +55,11 @@ input#number {
     font-size: 17px;
 }
 
-.help{
+.hrs {
+    height: 45px;
+}
+
+.help, #removeClass{
     margin: 10px 0;
     border-radius: 6px;
     outline: none;
@@ -57,7 +88,7 @@ button {
     outline: none;
     border: none;
     width: 100px;
-    height: 40px;
+    height: 45px;
     font-weight: bold;
     font-size: 13px;
     background-color: #1ba1bb;

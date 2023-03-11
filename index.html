@@ -9,11 +9,38 @@
 </head>
 <body>
 
-    <div class="container">
+    <div class="container" id='container'>
 
         <h1>To ROL</h1>
-        <input type="number" id="number">
-        <button  class="addItem" id="addItem">Adiconar a lista</button>
+
+        <div id="datas">
+
+            <p>Valores</p>
+            <input  type="number" id="values">
+            <button  class="addItem" id="addItem">Adiconar valor</button>
+            <button id="createClass">Nova classe</button>
+            <button id="removeClass">Remover classe</button>
+
+        </div>
+
+        <fieldset id="class1">
+            
+            <legend>Dados - Classe 1</legend>          
+
+            <hr class="hrs" id="hrs">
+
+            <p>Classe 1</p>
+
+            <hr class="hrs" id="hrs">
+
+            <p>De</p>
+            <input type="number" id="from">
+            <p>Até</p>
+            <input type="number" id="to">
+
+
+        </fieldset>       
+        
         <button id="toOrder">Ordenar</button>
         <h2 id="h2"></h2>
         <ul id='list'>

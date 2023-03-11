@@ -1,9 +1,62 @@
+let container = document.getElementById('container');
 let addItem = document.getElementById('addItem');
+let createClass = document.getElementById('createClass');
+let removeClass = document.getElementById('removeClass');
 let list = [];
+let classNumber = 1;
+
+createClass.addEventListener('click', () => {
+
+    classNumber += 1;
+
+    let fieldset = document.createElement('fieldset');
+    let legend = document.createElement('legend');
+    let firstHr = document.createElement('hr');
+    let secondHr = document.createElement('hr');
+    let firstP = document.createElement('p');
+    let secondP = document.createElement('p');
+    let thirdP = document.createElement('p');
+    let firstInput = document.createElement('input');
+    let secondInput = document.createElement('input');
+    
+    fieldset.setAttribute('id', `class${classNumber}`)
+    legend.innerHTML = `Dados - Classe ${classNumber}`;
+    firstHr.setAttribute('class', 'hrs');
+    firstHr.setAttribute('id', 'hrs');
+    secondHr.setAttribute('class', 'hrs');
+    secondHr.setAttribute('id', 'hrs');
+    firstP.innerHTML = `Classe ${classNumber}`;
+    secondP.innerHTML = 'De';
+    firstInput.setAttribute('id', 'from');
+    firstInput.setAttribute('type', 'number');
+    thirdP.innerHTML = 'Até';
+    secondInput.setAttribute('id', 'to');
+    secondInput.setAttribute('type', 'number');
+
+    fieldset.appendChild(legend);
+    fieldset.appendChild(firstHr);
+    fieldset.appendChild(firstP);
+    fieldset.appendChild(secondHr);
+    fieldset.appendChild(secondP);
+    fieldset.appendChild(firstInput);
+    fieldset.appendChild(thirdP);
+    fieldset.appendChild(secondInput);
+    container.insertBefore(fieldset, container.children[classNumber + 1]);    
+
+    removeClass.addEventListener('click', () => {
+    
+        let field = document.getElementById(`class${classNumber}`)
+        container.removeChild(field);
+        classNumber -= 1;
+    
+    });
+    
+});
+
 
 addItem.addEventListener('click', () => {
 
-    let numberInput = document.getElementById('number');
+    let numberInput = document.getElementById('values');
     list.push(numberInput.value);
     numberInput.value = '';
 
