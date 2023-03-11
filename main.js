@@ -11,54 +11,69 @@ createClass.addEventListener('click', () => {
 
     let fieldset = document.createElement('fieldset');
     let legend = document.createElement('legend');
-    let firstHr = document.createElement('hr');
-    let secondHr = document.createElement('hr');
     let firstP = document.createElement('p');
     let secondP = document.createElement('p');
     let thirdP = document.createElement('p');
     let firstInput = document.createElement('input');
     let secondInput = document.createElement('input');
+    let thirdInput = document.createElement('input');
     
     fieldset.setAttribute('id', `class${classNumber}`)
     legend.innerHTML = `Dados - Classe ${classNumber}`;
-    firstHr.setAttribute('class', 'hrs');
-    firstHr.setAttribute('id', 'hrs');
-    secondHr.setAttribute('class', 'hrs');
-    secondHr.setAttribute('id', 'hrs');
-    firstP.innerHTML = `Classe ${classNumber}`;
+    firstP.innerHTML = `Nome da classe`;
     secondP.innerHTML = 'De';
-    firstInput.setAttribute('id', 'from');
-    firstInput.setAttribute('type', 'number');
+    firstInput.setAttribute('id', 'class-name');
     thirdP.innerHTML = 'Até';
     secondInput.setAttribute('id', 'to');
     secondInput.setAttribute('type', 'number');
+    thirdInput.setAttribute('id', 'to');
+    thirdInput.setAttribute('type', 'number');
 
     fieldset.appendChild(legend);
-    fieldset.appendChild(firstHr);
     fieldset.appendChild(firstP);
-    fieldset.appendChild(secondHr);
-    fieldset.appendChild(secondP);
     fieldset.appendChild(firstInput);
-    fieldset.appendChild(thirdP);
+    fieldset.appendChild(secondP);
     fieldset.appendChild(secondInput);
+    fieldset.appendChild(thirdP);
+    fieldset.appendChild(thirdInput);
     container.insertBefore(fieldset, container.children[classNumber + 1]);    
+    
+});
 
-    removeClass.addEventListener('click', () => {
-    
-        let field = document.getElementById(`class${classNumber}`)
-        container.removeChild(field);
-        classNumber -= 1;
-    
-    });
-    
+removeClass.addEventListener('click', () => {
+
+    let message = 'Não é possível ter menos de uma classe!';
+    let currentFildset = document.getElementById(`class${classNumber}`)
+
+    classNumber <= 1 ? window.alert(message) :              
+        container.removeChild(currentFildset);
+
+        classNumber === 1 ? classNumber = 1 : classNumber -= 1;
+
 });
 
 
 addItem.addEventListener('click', () => {
 
     let numberInput = document.getElementById('values');
-    list.push(numberInput.value);
-    numberInput.value = '';
+    let inputs = document.getElementsByTagName('input');
+
+    for (let i = 0; i <= inputs.length; i++){
+
+        if(inputs[i].value == ''){
+
+            window.alert('Ainda há campos a serem preenchidos.');
+            break;
+
+        }else {
+            
+            list.push(numberInput.value);
+            numberInput.value = '';
+            break;
+
+        };
+
+    };
 
 });
 
@@ -68,25 +83,32 @@ orderItems.addEventListener('click', () => {
 
     list.sort((a, b) => a - b);
     
-    let ul = document.getElementById('list');
+    let table = document.getElementById('table-datas');
+    table.style.visibility = 'initial';
+
+    let tableFirstLine = document.createElement('tr');
+    let tableOrderLine = document.createElement('th');
+    let tableValueLine = document.createElement('th');
+
+    tableOrderLine.innerHTML = 'Ordem';
+    tableValueLine.innerHTML = 'Valores';
+    tableFirstLine.appendChild(tableOrderLine);
+    tableFirstLine.appendChild(tableValueLine);
+    table.appendChild(tableFirstLine);
 
     for(let i = 0; i < list.length; i++){
-
-        let li = document.createElement('li');
-
-        li.innerHTML = list[i];
                 
         if(i <= list.length){
             
-            let li = document.createElement('li');
-            let h2 = document.getElementById('h2');
-            let maxMinResult = document.getElementById('maxMin');
+            let tableValue = document.createElement('td');
+            let tableLine = document.createElement('tr');
+            let tableOrder = document.createElement('td');
 
-            h2.innerHTML = 'A ordem dos números digitados é';
-            li.innerHTML = list[i];
-            ul.appendChild(li);
-            li.setAttribute('id',  i);
-            maxMinResult.innerHTML = `Os valores máximos e mínimos são, respectivamente, ${Math.max(...list)} e ${Math.min(...list)}`;
+            tableOrder.innerHTML = `${i + 1}°`;
+            tableValue.innerHTML = list[i];           
+            tableLine.appendChild(tableOrder);
+            tableLine.appendChild(tableValue);
+            table.appendChild(tableLine);           
                    
         };
 
@@ -100,17 +122,12 @@ let resetButton = document.getElementById('toReset');
 
 resetButton.addEventListener('click', () => {
 
-    let ul = document.getElementById('list');
+    let table = document.getElementById('table-datas');
+    table.style.visibility = 'hidden';
 
-    while (ul.firstChild) { 
-        ul.removeChild(ul.firstChild); 
+    while (table.firstChild) { 
+        table.removeChild(table.firstChild); 
     };
-
-    let h2 = document.getElementById('h2');
-    let maxMinResult = document.getElementById('maxMin');
-
-    maxMinResult.innerHTML = '';
-    h2.innerHTML = '';
 
 });
 
@@ -119,3 +136,4 @@ function help(){
     window.alert('Olá! Para usar o To ROL você precisa digitar números no campo acima, após digitar um número aperte em "adicionar a lista", quando tiver colocado todos os números, basta clicar no botão "ordernar."')
 
 };
+

@@ -99,10 +99,14 @@ h2 {
     text-align: center;
 }
 
-ul, li {
-  color: whitesmoke;
-  font-size: 25px;
-  list-style: none;
-  margin: 10px 0;
-  padding: 0;
+#table-datas {
+    visibility: hidden; 
+}
+
+#table-datas, tr, th, td {
+  border: 1px solid #9f9f9f;
+  border-radius: 2px;
+  padding: 20px;
+  font-weight: bold;
+  text-align: center;
 }
