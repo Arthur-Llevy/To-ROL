@@ -249,9 +249,11 @@ resetButton.addEventListener('click', () => {
     list = [];
 
     let table = document.getElementById('table-datas');
-    let tableStatistics = document.getElementById('table-datas-statistics')
+    let tableStatistics = document.getElementById('table-datas-statistics');
+    let tableMinMax = document.getElementById('minMax');
     table.style.visibility = 'hidden';
     tableStatistics.style.visibility = 'hidden';
+    tableMinMax.style.visibility = 'hidden';
 
     while (table.firstChild) { 
         table.removeChild(table.firstChild); 
@@ -259,6 +261,10 @@ resetButton.addEventListener('click', () => {
 
     while (tableStatistics.firstChild) { 
         tableStatistics.removeChild(tableStatistics.firstChild); 
+    };
+ 
+    while (tableMinMax.firstChild) { 
+        tableMinMax.removeChild(tableMinMax.firstChild); 
     };
  
 
