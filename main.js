@@ -86,6 +86,11 @@ let classValues = [];
 
 function absoluteFrequence(){
 
+    let statisticsFirstTr = document.createElement('tr');
+    let statisticsFirstTh = document.createElement('th');
+    let statisticsSecondtTh = document.createElement('th');
+    let statisticsThirdTh = document.createElement('th');
+    let statisticsFourTh = document.createElement('th');
     let classes = document.querySelectorAll('.classes');
     let classesNames = document.querySelectorAll('.class-names');
     let table = document.getElementById('table-datas');
@@ -93,6 +98,18 @@ function absoluteFrequence(){
 
     let classesTos = document.querySelectorAll('.tos');
     let classesFroms = document.querySelectorAll('.froms');
+
+    statisticsFirstTh.innerHTML = 'Classes';
+    statisticsSecondtTh.innerHTML = 'F. absoluta';
+    statisticsThirdTh.innerHTML = 'F. relativa';
+    statisticsFourTh.innerHTML = '%';
+
+    statisticsFirstTr.appendChild(statisticsFirstTh);
+    statisticsFirstTr.appendChild(statisticsSecondtTh);
+    statisticsFirstTr.appendChild(statisticsThirdTh);
+    statisticsFirstTr.appendChild(statisticsFourTh);
+    tableStatistics.appendChild(statisticsFirstTr)
+
 
     for(let i = 0; i < classNumber; i++){
 
@@ -114,16 +131,6 @@ function absoluteFrequence(){
         let classThFa = document.createElement('th');
         let classThFe = document.createElement('th');
         let classThPercentage = document.createElement('th');
-        let totalTr = document.createElement('tr');
-        let total = document.createElement('td');
-        let totalFa = document.createElement('td');
-        let totalFr = document.createElement('td');
-        let totalPercentage = document.createElement('td');
-
-        total.innerHTML = 'Total';
-        totalFa.innerHTML = `n = ${list.length}`;
-        totalFr.innerHTML = `1,00`;
-        totalPercentage.innerHTML = `100%`;
 
         classThName.innerHTML = classesNames[i]?.value
         classThFa.innerHTML = classValues.length;
@@ -133,18 +140,27 @@ function absoluteFrequence(){
         statisticsTr.appendChild(classThFa);
         statisticsTr.appendChild(classThFe);
         statisticsTr.appendChild(classThPercentage);
-        totalTr.appendChild(total);
-        totalTr.appendChild(totalFa);
-        totalTr.appendChild(totalFr);
-        totalTr.appendChild(totalPercentage);
-        tableStatistics.appendChild(statisticsTr)
-        tableStatistics.appendChild(totalTr)
+        tableStatistics.appendChild(statisticsTr);        
 
         classValues = [];
 
     }; 
 
+    let totalTr = document.createElement('tr');
+    let total = document.createElement('td');
+    let totalFa = document.createElement('td');
+    let totalFr = document.createElement('td');
+    let totalPercentage = document.createElement('td');
+    total.innerHTML = 'Total';
+    totalFa.innerHTML = `n = ${list.length}`;
+    totalFr.innerHTML = `1,00`;
+    totalPercentage.innerHTML = `100%`;
 
+    totalTr.appendChild(total);
+    totalTr.appendChild(totalFa);
+    totalTr.appendChild(totalFr);
+    totalTr.appendChild(totalPercentage);        
+    tableStatistics.appendChild(totalTr);
 
 };
 
@@ -204,11 +220,19 @@ let resetButton = document.getElementById('toReset');
 
 resetButton.addEventListener('click', () => {
 
+    list = [];
+
     let table = document.getElementById('table-datas');
+    let tableStatistics = document.getElementById('table-datas-statistics')
     table.style.visibility = 'hidden';
+    tableStatistics.style.visibility = 'hidden';
 
     while (table.firstChild) { 
         table.removeChild(table.firstChild); 
+    };
+
+    while (tableStatistics.firstChild) { 
+        tableStatistics.removeChild(tableStatistics.firstChild); 
     };
  
 
