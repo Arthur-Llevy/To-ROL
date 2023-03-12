@@ -84,6 +84,70 @@ addItem.addEventListener('click', () => {
 let orderItems = document.getElementById('toOrder');
 let classValues = [];
 
+function absoluteFrequence(){
+
+    let classes = document.querySelectorAll('.classes');
+    let classesNames = document.querySelectorAll('.class-names');
+    let table = document.getElementById('table-datas');
+    let tableStatistics = document.getElementById('table-datas-statistics');
+
+    let classesTos = document.querySelectorAll('.tos');
+    let classesFroms = document.querySelectorAll('.froms');
+
+    for(let i = 0; i < classNumber; i++){
+
+        for(let j = 0; j <= list.length; j++){
+
+            list[j] >= parseInt(classesFroms[i].value) ? 
+                list[j] < parseInt(classesTos[i].value) ?
+                    classValues.push(list[j]) : console.log("not added")  
+            : console.log("not added") 
+
+        };
+
+        console.log(`Fa Classe ${classNumber}: ${classValues}`)
+        console.log(`Fr Classe ${classNumber}: ${classValues.length / list.length}`)
+        console.log(`% Classe ${classNumber}: ${(classValues.length / list.length) * 100}`)
+
+        let statisticsTr = document.createElement('tr');
+        let classThName = document.createElement('th');
+        let classThFa = document.createElement('th');
+        let classThFe = document.createElement('th');
+        let classThPercentage = document.createElement('th');
+        let totalTr = document.createElement('tr');
+        let total = document.createElement('td');
+        let totalFa = document.createElement('td');
+        let totalFr = document.createElement('td');
+        let totalPercentage = document.createElement('td');
+
+        total.innerHTML = 'Total';
+        totalFa.innerHTML = `n = ${list.length}`;
+        totalFr.innerHTML = `1,00`;
+        totalPercentage.innerHTML = `100%`;
+
+        classThName.innerHTML = classesNames[i]?.value
+        classThFa.innerHTML = classValues.length;
+        classThFe.innerHTML = (classValues.length / list.length).toFixed(2);
+        classThPercentage.innerHTML = ((classValues.length / list.length) * 100).toFixed(2);
+        statisticsTr.appendChild(classThName);
+        statisticsTr.appendChild(classThFa);
+        statisticsTr.appendChild(classThFe);
+        statisticsTr.appendChild(classThPercentage);
+        totalTr.appendChild(total);
+        totalTr.appendChild(totalFa);
+        totalTr.appendChild(totalFr);
+        totalTr.appendChild(totalPercentage);
+        tableStatistics.appendChild(statisticsTr)
+        tableStatistics.appendChild(totalTr)
+
+        classValues = [];
+
+    }; 
+
+
+
+};
+
 orderItems.addEventListener('click', () => {         
 
     list.sort((a, b) => a - b);
@@ -102,18 +166,6 @@ orderItems.addEventListener('click', () => {
     let tableFirstLine = document.createElement('tr');
     let tableOrderLine = document.createElement('th');
     let tableValueLine = document.createElement('th');
-
-    tableStatisticsClassName.innerHTML = 'Classe';
-    tableStatisticsFa.innerHTML = 'Fr. absoluta';
-    tableStatisticsFe.innerHTML = 'Fr. relativa ';
-    tableStatisticsPercent.innerHTML = '%';
-
-
-    tableStatisticsFirstLine.appendChild(tableStatisticsClassName);
-    tableStatisticsFirstLine.appendChild(tableStatisticsFa);
-    tableStatisticsFirstLine.appendChild(tableStatisticsFe);
-    tableStatisticsFirstLine.appendChild(tableStatisticsPercent);
-    tableStatistics.appendChild(tableStatisticsFirstLine);
 
     tableOrderLine.innerHTML = 'Ordem';
     tableValueLine.innerHTML = 'Valores';
@@ -139,44 +191,12 @@ orderItems.addEventListener('click', () => {
 
     };
 
-    let classes = document.querySelectorAll('.classes');
-    let classesNames = document.querySelectorAll('.class-names');
-    let classesTos = document.querySelectorAll('.tos');
-    let classesFroms = document.querySelectorAll('.froms');
 
-    for(let i = 0; i <= classes.length; i++){
-
-        let statisticsTr = document.createElement('tr');
-        let classThName = document.createElement('th');
-        let classThFa = document.createElement('th');
-        let classThFe = document.createElement('th');
-        let classThPercentage = document.createElement('th');
-
-        classThName.innerHTML = classesNames[i]?.value
-        statisticsTr.appendChild(classThName);
-        tableStatistics.appendChild(statisticsTr)
-
-
-    };
 
     let tableStatisticsTotal = document.createElement('td');
     let tableStatisticsTotalFa = document.createElement('td');
     let tableStatisticsTotalFr = document.createElement('td');
-    let tableStatisticsTotalPercent = document.createElement('td');
-
-    for (let i = 0; i <= list.length; i++ ){
-
-        if(list[i] >= classesFroms[classNumber - 1].value){
-            console.log(classesTos[i].value)
-            classValues.push(list[i])
-            // console.log(classValues)
-
-        };
-
-    };   
-
-    list = [];    
-
+    let tableStatisticsTotalPercent = document.createElement('td');   
 
 });
 
