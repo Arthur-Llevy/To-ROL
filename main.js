@@ -151,6 +151,37 @@ function absoluteFrequence(){
     let totalFa = document.createElement('td');
     let totalFr = document.createElement('td');
     let totalPercentage = document.createElement('td');
+    let tableMinMaxFirstTr = document.createElement('tr');
+    let tableMinMaxSecondTr = document.createElement('tr');
+    let tableMinMaxFirstTh = document.createElement('th');
+    let tableMinMaxSecondTh = document.createElement('th');
+    let tableMinMaxThirdTh = document.createElement('th');
+    let tableMinMaxFourTh = document.createElement('th');
+    let tableMinMaxFiveTh = document.createElement('th');
+    let tableMinMaxSixTh = document.createElement('th');
+    let tableMinMax = document.getElementById('minMax');
+    
+    tableMinMaxFirstTh.innerHTML = 'V. máx';
+    tableMinMaxSecondTh.innerHTML = 'V. min';
+    tableMinMaxThirdTh.innerHTML = 'Amplitude total';
+    tableMinMaxFourTh.innerHTML = Math.max(...list);
+    tableMinMaxFiveTh.innerHTML = Math.min(...list);
+    tableMinMaxSixTh.innerHTML = Math.max(...list) - Math.min(...list);
+
+    tableMinMaxFirstTr.appendChild(tableMinMaxFirstTh);
+    tableMinMaxFirstTr.appendChild(tableMinMaxSecondTh);
+    tableMinMaxFirstTr.appendChild(tableMinMaxThirdTh);
+
+    tableMinMax.appendChild(tableMinMaxFirstTr);
+
+    tableMinMaxSecondTr.appendChild(tableMinMaxFourTh);
+    tableMinMaxSecondTr.appendChild(tableMinMaxFiveTh);
+    tableMinMaxSecondTr.appendChild(tableMinMaxSixTh);
+
+    tableMinMax.appendChild(tableMinMaxSecondTr);    
+
+
+    tableMinMax.style.visibility = 'initial';
     total.innerHTML = 'Total';
     totalFa.innerHTML = `n = ${list.length}`;
     totalFr.innerHTML = `1,00`;
@@ -172,6 +203,7 @@ orderItems.addEventListener('click', () => {
     let tableStatistics = document.getElementById('table-datas-statistics');
     table.style.visibility = 'initial';
     tableStatistics.style.visibility = 'initial';
+    
 
     let tableStatisticsFirstLine = document.createElement('tr');
     let tableStatisticsClassName = document.createElement('th');
@@ -181,7 +213,7 @@ orderItems.addEventListener('click', () => {
     let tableStatisticsFe = document.createElement('th');
     let tableFirstLine = document.createElement('tr');
     let tableOrderLine = document.createElement('th');
-    let tableValueLine = document.createElement('th');
+    let tableValueLine = document.createElement('th'); 
 
     tableOrderLine.innerHTML = 'Ordem';
     tableValueLine.innerHTML = 'Valores';
@@ -207,12 +239,6 @@ orderItems.addEventListener('click', () => {
 
     };
 
-
-
-    let tableStatisticsTotal = document.createElement('td');
-    let tableStatisticsTotalFa = document.createElement('td');
-    let tableStatisticsTotalFr = document.createElement('td');
-    let tableStatisticsTotalPercent = document.createElement('td');   
 
 });
 
