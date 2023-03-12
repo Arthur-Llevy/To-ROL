@@ -111,3 +111,36 @@ h2 {
   font-weight: bold;
   text-align: center;
 }
+
+@media screen and (max-width: 690px) {
+    #datas {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      width: 95%;
+      height: auto;
+      margin: 30px 0;
+      font-weight: bold;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    fieldset {
+      display: flex;
+      width: auto;
+      height: auto;
+      align-items: center;
+      gap: 15px;
+      margin: 0 0 30px 0;
+      flex-direction: column;
+    }
+
+    #table-datas-statistics, #table-datas, tr, th, td {
+      border: 1px solid #9f9f9f;
+      border-radius: 2px;
+      padding: 6px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+}
