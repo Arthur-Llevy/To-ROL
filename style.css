@@ -99,11 +99,12 @@ h2 {
     text-align: center;
 }
 
-#table-datas {
+#table-datas, #table-datas-statistics {
     visibility: hidden; 
+    margin: 20px 0;
 }
 
-#table-datas, tr, th, td {
+#table-datas-statistics ,#table-datas, tr, th, td {
   border: 1px solid #9f9f9f;
   border-radius: 2px;
   padding: 20px;
