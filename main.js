@@ -266,7 +266,9 @@ resetButton.addEventListener('click', () => {
 
 function help(){
 
-    window.alert('Olá! Para usar o To ROL você precisa digitar números no campo acima, após digitar um número aperte em "adicionar a lista", quando tiver colocado todos os números, basta clicar no botão "ordernar."')
+    let message = "Olá! Para usar o To ROL você precisa digitar números no campo acima, que servem como dados, após digitar um número aperte em 'adicionar a lista', quando tiver colocado todos os números, crie classes, elas servem como 'categorias' que separam seus dados, elas possuem campos para o nome, seu valor mínimo e o máximo, após isso clique em ordenar para obter os resultados. "
+
+    window.alert(message);
 
 };
 
