@@ -29,4 +29,4 @@ A ideia veio  tona em uma aula de Matemática sobre estatística ministrada pelo
 <img src="https://user-images.githubusercontent.com/120432923/224583935-aff083d3-36e3-4e0b-8560-559d9c9df625.png" width="90%" alt="foto 2">
 <img src="https://user-images.githubusercontent.com/120432923/224583959-8f85abc0-c1f9-472f-8fe4-ba4705963241.png" width="90%" alt="foto 3">
 
-
+### Projeto licenciado pela [Licença MIT](./LICENSE)
