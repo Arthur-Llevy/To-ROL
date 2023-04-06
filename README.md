@@ -3,7 +3,7 @@
 Para acessá-lo, basta clicar [aqui](https://arthur-llevy.github.io/To-ROL/).
 
 # Como surgiu a ideia?
-A ideia veio à tona em uma aula de Matemática sobre estatística ministrada pelo professor Walter Pessoa, na ETE Ginásio Pernambucano. Como a turma a qual estava assintindo a aula faz parte do curso de Desenvolvimento de Sistemas ele propôs a ideia de criar um projeto que realizasse os cálculos matemáticos envolvidos na temática da aula.
+A ideia veio à tona em uma aula de Matemática sobre estatística ministrada pelo professor [Walter Pessoa](https://instagram.com/prof.walterpessoa?igshid=YmMyMTA2M2Y=), na ETE Ginásio Pernambucano. Como a turma a qual estava assintindo a aula faz parte do curso de Desenvolvimento de Sistemas ele propôs a ideia de criar um projeto que realizasse os cálculos matemáticos envolvidos na temática da aula.
 
 # Funcionalidades
 
